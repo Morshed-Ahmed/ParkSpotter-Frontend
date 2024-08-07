@@ -66,7 +66,7 @@ const SliderCarousel = ({ children }) => {
     const timer = setInterval(() => {
       setStartIndex((prevIndex) => {
         const newIndex = prevIndex + velocity
-        return Math.max(0, Math.min(children.length - 1, newIndex))
+        return Math.max(0, Math.min(children?.length - 1, newIndex))
       })
       setVelocity((prevVelocity) => prevVelocity * decelerationRate)
       if (Math.abs(velocity) < 0.001) clearInterval(timer)
@@ -97,7 +97,7 @@ const SliderCarousel = ({ children }) => {
     const timer = setInterval(() => {
       setStartIndex((prevIndex) => {
         const newIndex = prevIndex + velocity
-        return Math.max(0, Math.min(children.length - 1, newIndex))
+        return Math.max(0, Math.min(children?.length - 1, newIndex))
       })
       setVelocity((prevVelocity) => prevVelocity * decelerationRate)
       if (Math.abs(velocity) < 0.001) clearInterval(timer)
