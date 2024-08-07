@@ -62,7 +62,6 @@ const SliderCarousel = ({ children }) => {
 
   const handleTouchEnd = () => {
     setIsDragging(false)
-
     const decelerationRate = 0.7
     const timer = setInterval(() => {
       setStartIndex((prevIndex) => {
@@ -94,7 +93,6 @@ const SliderCarousel = ({ children }) => {
 
   const handleMouseUp = () => {
     setIsDragging(false)
-
     const decelerationRate = 0.7
     const timer = setInterval(() => {
       setStartIndex((prevIndex) => {
@@ -131,3 +129,4 @@ const SliderCarousel = ({ children }) => {
 }
 
 export default SliderCarousel
+// original

@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import * as carouselIcons from "../../../../../../assets/CarouselIcons/CarouselIcons"
 
 const CardContainer = styled.div`
   display: flex;
@@ -22,6 +21,7 @@ const CardContainer = styled.div`
     padding: 30px;
     height: 400px;
     width: 300px;
+    margin-bottom: 10px;
   }
 `
 
@@ -76,26 +76,20 @@ const Date = styled.p`
   font-size: 12px;
 `
 
-function SliderCarouselCard() {
+function SliderCarouselCard({ icon, title, description, author, date }) {
   return (
     <CardContainer>
       <IconContainer>
-        <Icon src={carouselIcons.adobeIcon} />
+        <Icon src={icon} />
       </IconContainer>
       <ContentContainer>
         <h1>&quot;</h1>
         <div>
-          <TitleContainer>
-            Mooving, ParkSpotter to deploy 200 battery swapping stations in
-            Delhi NCR, Mumbai and Bengaluru
-          </TitleContainer>
-          <Description>
-            Battery swapping stations will play a pivotal role in expediting the
-            Indian EV adoption rate across India.
-          </Description>
+          <TitleContainer>{title}</TitleContainer>
+          <Description>{description}</Description>
           <ReadMoreButton>Read more...</ReadMoreButton>
-          <Author>by Express Mobility Desk</Author>
-          <Date>November 30, 2022</Date>
+          <Author>by {author}</Author>
+          <Date>{date}</Date>
         </div>
       </ContentContainer>
     </CardContainer>
@@ -103,3 +97,4 @@ function SliderCarouselCard() {
 }
 
 export default SliderCarouselCard
+// original
