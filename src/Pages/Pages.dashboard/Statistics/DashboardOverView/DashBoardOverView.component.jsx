@@ -71,7 +71,7 @@ function DashBoardOverView({ dashboardData }) {
 
           if (filteredData && filteredData.subscription_id) {
             return fetch(
-              `https://parkspotter-backened.onrender.com/accounts/subscription/${filteredData.subscription_id}`,
+              `https://parkspotter-backened.onrender.com/accounts/subscription_package/${filteredData.subscription_id}`,
               {
                 method: "GET",
                 headers: {
@@ -126,7 +126,7 @@ function DashBoardOverView({ dashboardData }) {
               Subscription Expires:&nbsp;&nbsp;
             </span>
             <span style={{ fontWeight: "700", fontSize: "15px" }}>
-              {subscriptionData?.end_date}
+              {filteredParkOwner?.subscription_end_date}
             </span>
           </TopSectionDateBox>
           <TopSectionDateIcon>

@@ -3,190 +3,238 @@ import styled from "styled-components"
 import { Link } from "react-router-dom"
 
 const Container = styled.div`
-  background-color: #f6f7fb;
+  background-color: #ffffff;
+  padding: 50px 0;
 `
+
 const ParkBusinessesTitle = styled.div`
   width: 85%;
   margin: auto;
-  padding: 70px 0px;
+  padding: 50px 0;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  align-items: flex-start;
+  text-align: start;
+
   h1 {
-    font-size: 56px;
-    line-height: 69px;
-    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    font-weight: 600;
+    color: #000000;
   }
+
   p {
     font-size: 18px;
-    line-height: 32px;
-    font-weight: 600;
-    color: #a9a9ab;
+    line-height: 28px;
+    font-weight: 400;
+    color: #6e6e73;
   }
 
   @media (max-width: 768px) {
+    align-items: center;
+    text-align: center;
     h1 {
-      font-size: 40px;
-      line-height: 54px;
+      font-size: 36px;
+      line-height: 46px;
     }
+
     p {
+      font-size: 16px;
       line-height: 26px;
     }
+  }
+
+  @media (max-width: 480px) {
+    align-items: center;
     text-align: center;
+    h1 {
+      font-size: 28px;
+      line-height: 38px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 24px;
+    }
   }
 `
+
 const TabsContainer = styled.div`
   width: 85%;
   margin: auto;
   display: flex;
-  gap: 40px;
-  border-bottom: 1px solid #b3b3b3;
-  grid-template-column: 1fr 1fr;
-  column-gap: 70px;
+  justify-content: flex-start;
+  gap: 30px;
+  border-bottom: 1px solid #e0e0e0;
 
   @media (max-width: 768px) {
+    justify-content: center;
+
+    gap: 20px;
+  }
+
+  @media (max-width: 480px) {
+    justify-content: center;
+
+    flex-direction: column;
     gap: 10px;
-    display: grid;
-    grid-template-column: 1fr 1fr;
-    column-gap: 10%;
-    border-bottom: none;
+    align-items: center;
   }
 `
+
 const TabCoupleContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 70px;
+  display: flex;
+  gap: 30px;
+
   @media (max-width: 768px) {
-    column-gap: auto;
+    gap: 20px;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
   }
 `
 
 const Tab = styled.div`
-  padding: 10px 0px;
+  padding: 10px 0;
   cursor: pointer;
-  color: ${({ active }) => (active ? "#5430BB" : "#B3B3B3")};
-  border: 1px solid #ccc;
+  color: ${({ active }) => (active ? "#0071e3" : "#a1a1a6")};
   border: none;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 30px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
   border-bottom: ${({ active }) =>
-    active ? "1px solid #5430BB" : "transparent"};
-
-  &:first-child {
-    border-top-left-radius: 5px;
-  }
-
-  &:last-child {
-    border-top-right-radius: 5px;
-  }
+    active ? "2px solid #0071e3" : "transparent"};
 
   @media (max-width: 768px) {
-    font-size: 13px;
-    font-weight: 700;
-    background-color: #202123;
-    text-align: center;
-    border-radius: 60px;
-    color: ${({ active }) => (active ? "coral" : "#fff")};
+    font-size: 18px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 16px;
   }
 `
 
 const Content = styled.div`
-  margin: 70px 0;
+  margin: 50px 0;
+
+  @media (max-width: 768px) {
+    margin: 40px 0;
+  }
+
+  @media (max-width: 480px) {
+    margin: 30px 0;
+  }
 `
 
 const ContentBox = styled.div`
   display: flex;
+  gap: 30px;
+
   @media (max-width: 768px) {
     flex-direction: column;
+    gap: 20px;
   }
 `
 
 const ContentImage = styled.div`
-  width: 50%;
+  flex: 1;
 
   img {
     width: 100%;
-  }
-  @media (max-width: 768px) {
-    width: 100%;
+    border-radius: 10px;
   }
 `
+
 const ContentDescription = styled.div`
-  width: 50%;
-  padding: 33px;
-  background-color: #5430bb;
-  color: white;
+  flex: 1;
+  padding: 30px;
+  background-color: #f5f5f7;
+  border-radius: 10px;
+  color: #000000;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
   h1 {
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 50px;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
   }
+
   h2 {
     font-size: 24px;
-    font-weight: 600;
-    line-height: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
   }
 
-  ul li {
-    font-size: 16px;
-    font-weight: 800;
-    line-height: 36px;
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
   }
 
   @media (max-width: 768px) {
-    width: 100%;
-
     h1 {
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 20px;
+      font-size: 28px;
     }
+
     h2 {
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 22px;
+      font-size: 20px;
     }
-    text-align: center;
-    background-color: #202123;
+
+    ul li {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 24px;
+    }
+
+    h2 {
+      font-size: 18px;
+    }
+
+    ul li {
+      font-size: 12px;
+    }
   }
 `
+
 const ContentDescriptionLink = styled(Link)`
-  display: flex;
-  align-items: center;
-  gap: 100px;
-  color: white;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #0071e3;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 40px;
+    font-size: 16px;
+  }
 
-    p {
-      font-family: "Roboto", sans-serif;
-      font-weight: 900;
-      font-size: 3em;
-      line-height: 25px;
-      background-color: #fff;
-      border-radius: 40px;
-      padding: 0 16px 7px 16px;
-      color: coral;
-      margin: 0;
-
-      &:hover {
-        color: white;
-        background-color: coral;
-      }
-    }
+  @media (max-width: 480px) {
+    font-size: 14px;
   }
 `
 
 const CarouselContainer = styled.div`
   width: 100%;
   overflow: hidden;
-  position: relative;
+  border-radius: 10px;
+  margin-bottom: 20px;
 `
 
 const SlideWrapper = styled.div`
@@ -201,51 +249,66 @@ const Slide = styled.img`
 
 const BusinessesProblemSolve = styled.div`
   text-align: center;
-  padding-bottom: 70px;
+  padding: 50px 0;
 
   h1 {
-    font-size: 48px;
-    line-height: 50px;
-    font-weight: 700;
-    padding-bottom: 15px;
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #000000;
   }
 
   button {
     font-size: 18px;
     padding: 10px 30px;
+    background-color: #0071e3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #005bb5;
+    }
   }
 
   @media (max-width: 768px) {
     h1 {
+      font-size: 30px;
+    }
+
+    button {
+      font-size: 16px;
+      padding: 8px 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
       font-size: 24px;
-      line-height: 26px;
+    }
+
+    button {
+      font-size: 14px;
+      padding: 6px 15px;
     }
   }
 `
 
-const CorporatesImages = [
+const ParkOwnersImages = [
   "https://parkplus.io/_next/image?url=https%3A%2F%2Fstrapi-file-uploads.s3.ap-south-1.amazonaws.com%2FSoftware_Technology_Park_Gurgaon_1_2_5a107f7fba.jpg&w=1920&q=75",
   "https://parkplus.io/_next/image?url=https%3A%2F%2Fstrapi-file-uploads.s3.ap-south-1.amazonaws.com%2FSoftware_Technology_Park_Gurgaon_1_2_5a107f7fba.jpg&w=1920&q=75",
   "https://parkplus.io/_next/image?url=https%3A%2F%2Fstrapi-file-uploads.s3.ap-south-1.amazonaws.com%2FSoftware_Technology_Park_Gurgaon_1_2_5a107f7fba.jpg&w=1920&q=75",
 ]
-const SocietiesImages = [
-  "https://parkplus.io/_next/image?url=https%3A%2F%2Fstrapi-file-uploads.s3.ap-south-1.amazonaws.com%2Fglo_car_parking_garage_floor_03_7bfe159128.webp&w=1920&q=75",
-  "https://parkplus.io/_next/image?url=https%3A%2F%2Fstrapi-file-uploads.s3.ap-south-1.amazonaws.com%2Fglo_car_parking_garage_floor_03_7bfe159128.webp&w=1920&q=75",
-  "https://parkplus.io/_next/image?url=https%3A%2F%2Fstrapi-file-uploads.s3.ap-south-1.amazonaws.com%2Fglo_car_parking_garage_floor_03_7bfe159128.webp&w=1920&q=75",
-]
-const ParkingOwnersImages = [
-  "https://parkplus.io/_next/image?url=https%3A%2F%2Fstrapi-file-uploads.s3.ap-south-1.amazonaws.com%2Fback_parking_8d924a1fe6.jpg&w=1920&q=75",
-  "https://parkplus.io/_next/image?url=https%3A%2F%2Fstrapi-file-uploads.s3.ap-south-1.amazonaws.com%2Fback_parking_8d924a1fe6.jpg&w=1920&q=75",
-  "https://parkplus.io/_next/image?url=https%3A%2F%2Fstrapi-file-uploads.s3.ap-south-1.amazonaws.com%2Fback_parking_8d924a1fe6.jpg&w=1920&q=75",
-]
-const MallsHotelsImages = [
-  "https://parkplus.io/_next/image?url=https%3A%2F%2Fstrapi-file-uploads.s3.ap-south-1.amazonaws.com%2F1597042333_Vxc_Np_X_parking_featured_the_tech_portal_aa61e1ab08.jpg&w=1920&q=75",
-  "https://parkplus.io/_next/image?url=https%3A%2F%2Fstrapi-file-uploads.s3.ap-south-1.amazonaws.com%2F1597042333_Vxc_Np_X_parking_featured_the_tech_portal_aa61e1ab08.jpg&w=1920&q=75",
-  "https://parkplus.io/_next/image?url=https%3A%2F%2Fstrapi-file-uploads.s3.ap-south-1.amazonaws.com%2F1597042333_Vxc_Np_X_parking_featured_the_tech_portal_aa61e1ab08.jpg&w=1920&q=75",
+
+const UsersImages = [
+  "https://parkplus.io/_next/image?url=https%3A%2F%2Fstrapi-file-uploads.s3.ap-south-1.amazonaws.com%2FSoftware_Technology_Park_Gurgaon_1_2_5a107f7fba.jpg&w=1920&q=75",
+  "https://parkplus.io/_next/image?url=https%3A%2F%2Fstrapi-file-uploads.s3.ap-south-1.amazonaws.com%2FSoftware_Technology_Park_Gurgaon_1_2_5a107f7fba.jpg&w=1920&q=75",
+  "https://parkplus.io/_next/image?url=https%3A%2F%2Fstrapi-file-uploads.s3.ap-south-1.amazonaws.com%2FSoftware_Technology_Park_Gurgaon_1_2_5a107f7fba.jpg&w=1920&q=75",
 ]
 
 const ParkBusinesses = () => {
-  const [activeTab, setActiveTab] = useState("Corporates")
+  const [activeTab, setActiveTab] = useState("Park Owners")
 
   const handleTabClick = (tab) => {
     setActiveTab(tab)
@@ -256,12 +319,13 @@ const ParkBusinesses = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === CorporatesImages.length - 1 ? 0 : prevIndex + 1
+        prevIndex === ParkOwnersImages.length - 1 ? 0 : prevIndex + 1
       )
-    }, 3000) 
+    }, 3000)
 
     return () => clearInterval(intervalId)
   }, [])
+
   return (
     <Container>
       <ParkBusinessesTitle>
@@ -277,180 +341,82 @@ const ParkBusinesses = () => {
       <TabsContainer>
         <TabCoupleContainer>
           <Tab
-            active={activeTab === "Corporates"}
-            onClick={() => handleTabClick("Corporates")}
+            active={activeTab === "Park Owners"}
+            onClick={() => handleTabClick("Park Owners")}
           >
-            Corporates
+            Park Owners
           </Tab>
           <Tab
-            active={activeTab === "Societies"}
-            onClick={() => handleTabClick("Societies")}
+            active={activeTab === "Users"}
+            onClick={() => handleTabClick("Users")}
           >
-            Societies
-          </Tab>
-        </TabCoupleContainer>
-        <TabCoupleContainer>
-          <Tab
-            active={activeTab === "Parking owners"}
-            onClick={() => handleTabClick("Parking owners")}
-          >
-            Parking owners
-          </Tab>
-          <Tab
-            active={activeTab === "Malls/Hotels"}
-            onClick={() => handleTabClick("Malls/Hotels")}
-          >
-            Malls/Hotels
+            Users
           </Tab>
         </TabCoupleContainer>
       </TabsContainer>
       <Content>
-        {activeTab === "Corporates" && (
+        {activeTab === "Park Owners" && (
           <ContentBox>
             <ContentImage>
-              {/* <img
-                src="https://parkplus.io/_next/image?url=https%3A%2F%2Fstrapi-file-uploads.s3.ap-south-1.amazonaws.com%2FSoftware_Technology_Park_Gurgaon_1_2_5a107f7fba.jpg&w=1920&q=75"
-                alt=""
-              /> */}
-
               <CarouselContainer>
                 <SlideWrapper
                   style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                 >
-                  {CorporatesImages.map((image, index) => (
-                    <Slide key={index} src={image} alt={`Slide ${index + 1}`} />
+                  {ParkOwnersImages.map((image, index) => (
+                    <Slide key={index} src={image} />
                   ))}
                 </SlideWrapper>
               </CarouselContainer>
             </ContentImage>
             <ContentDescription>
-              <h1>For corporates</h1>
-              <ul style={{ marginLeft: "18px" }}>
-                <li>Smart Parking Solution using RFID Technology</li>
-                <li>ANPR (Automatic Number Plate Recognition) solution</li>
-                <li>Advanced Parking Guidance System</li>
-                <li>FASTag based parking solution</li>
-                <li>Fleet Management solution</li>
-                <li>EV charging stations</li>
+              <h1>Park Owners</h1>
+              <h2>Our Services:</h2>
+              <ul>
+                <li>Real-time monitoring</li>
+                <li>Efficient space management</li>
+                <li>Enhanced security</li>
               </ul>
-              <ContentDescriptionLink to={"/"} style={{}}>
-                <h2>
-                  See how we solved the parking <br />
-                  problem for RBS
-                </h2>
-                <p>&rarr;</p>
+              <ContentDescriptionLink to="/contact">
+                <p>Contact Us</p>
               </ContentDescriptionLink>
             </ContentDescription>
           </ContentBox>
         )}
-        {activeTab === "Societies" && (
+        {activeTab === "Users" && (
           <ContentBox>
             <ContentImage>
               <CarouselContainer>
                 <SlideWrapper
                   style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                 >
-                  {SocietiesImages.map((image, index) => (
-                    <Slide key={index} src={image} alt={`Slide ${index + 1}`} />
+                  {UsersImages.map((image, index) => (
+                    <Slide key={index} src={image} />
                   ))}
                 </SlideWrapper>
               </CarouselContainer>
             </ContentImage>
             <ContentDescription>
-              <h1>For Societies</h1>
-              <ul style={{ marginLeft: "18px" }}>
-                <li>Automatic gate entry/exit process</li>
-                <li>Anti Theft Feature</li>
-                <li>Wrong Parking Detection</li>
-                <li>RWA Dashboard</li>
-                <li>EV charging stations</li>
+              <h1>Users</h1>
+              <h2>Benefits for Users:</h2>
+              <ul>
+                <li>Convenient parking spots</li>
+                <li>Seamless payment options</li>
+                <li>Real-time availability updates</li>
               </ul>
-              <ContentDescriptionLink to={"/"} style={{}}>
-                <h2>
-                  See how we solved the parking <br />
-                  problem for Emaar Palm Drive
-                </h2>
-                <p>&rarr;</p>
-              </ContentDescriptionLink>
-            </ContentDescription>
-          </ContentBox>
-        )}
-        {activeTab === "Parking owners" && (
-          <ContentBox>
-            <ContentImage>
-              <CarouselContainer>
-                <SlideWrapper
-                  style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                >
-                  {MallsHotelsImages.map((image, index) => (
-                    <Slide key={index} src={image} alt={`Slide ${index + 1}`} />
-                  ))}
-                </SlideWrapper>
-              </CarouselContainer>
-            </ContentImage>
-            <ContentDescription>
-              <h1>For Parking Owners</h1>
-              <ul style={{ marginLeft: "18px" }}>
-                <li>Ticketing solution via POS device</li>
-                <li>Owner Dashboard for real time analytics</li>
-                <li>Smart alerts and auditioning tools</li>
-                <li>Cashless parking facility</li>
-                <li>Online bookings</li>
-              </ul>
-              <ContentDescriptionLink to={"/"} style={{}}>
-                <h2>
-                  See how we solved the parking <br />
-                  problem for Celestia Spaces
-                </h2>
-                <p>&rarr;</p>
-              </ContentDescriptionLink>
-            </ContentDescription>
-          </ContentBox>
-        )}
-        {activeTab === "Malls/Hotels" && (
-          <ContentBox>
-            <ContentImage>
-              <CarouselContainer>
-                <SlideWrapper
-                  style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                >
-                  {ParkingOwnersImages.map((image, index) => (
-                    <Slide key={index} src={image} alt={`Slide ${index + 1}`} />
-                  ))}
-                </SlideWrapper>
-              </CarouselContainer>
-            </ContentImage>
-            <ContentDescription>
-              <h1>For Malls/Hotels</h1>
-              <ul style={{ marginLeft: "18px" }}>
-                <li>FASTag enabled automatic parking system</li>
-                <li>Automatic number plate recognition system</li>
-                <li>Valet Parking software (ParkSpotter Valet)</li>
-                <li>Automatic parking guidance system</li>
-                <li>Online bookings for parking</li>
-                <li>Tie ups with EV charging network providers</li>
-              </ul>
-              <ContentDescriptionLink to={"/"} style={{}}>
-                <h2>
-                  See how we solved the parking
-                  <br />
-                  problem for Phoenix Marketcity
-                </h2>
-                <p>&rarr;</p>
+              <ContentDescriptionLink to="/contact">
+                <p>Contact Us</p>
               </ContentDescriptionLink>
             </ContentDescription>
           </ContentBox>
         )}
       </Content>
-
       <BusinessesProblemSolve>
-        <h1>
-          Let us solve your <br /> problems next
-        </h1>
-        <button>Get in touch</button>
+        <h1>Solving Your Parking Problems</h1>
+        <button>Get in Touch</button>
       </BusinessesProblemSolve>
     </Container>
   )
 }
 
 export default ParkBusinesses
+// original

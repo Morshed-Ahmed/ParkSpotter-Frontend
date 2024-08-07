@@ -1,6 +1,8 @@
-import styled from "styled-components"
-import SliderCarousel, { CarouselItem } from "./SliderCarousel/SliderCarousel"
-import SliderCarouselCard from "./SliderCarouselCard/SliderCarouselCard.component"
+import styled from "styled-components";
+import { useState, useEffect } from "react";
+import SliderCarousel, { CarouselItem } from "./SliderCarousel/SliderCarousel";
+import SliderCarouselCard from "./SliderCarouselCard/SliderCarouselCard.component";
+import * as carouselIcons from "../../../../../assets/CarouselIcons/CarouselIcons";
 
 const MentionsSectionContainer = styled.div`
   display: flex;
@@ -13,7 +15,7 @@ const MentionsSectionContainer = styled.div`
     flex-direction: column;
     height: 680px;
   }
-`
+`;
 
 const TitleContainer = styled.div`
   width: 30%;
@@ -27,7 +29,7 @@ const TitleContainer = styled.div`
     top: auto;
     text-align: center;
   }
-`
+`;
 
 const Title = styled.p`
   font-size: 80px;
@@ -37,7 +39,7 @@ const Title = styled.p`
     text-align: center;
     font-size: 24px;
   }
-`
+`;
 
 const ContentContainer = styled.div`
   width: 70%;
@@ -47,7 +49,7 @@ const ContentContainer = styled.div`
     z-index: 0;
     width: 100%;
   }
-`
+`;
 
 const GridContainer = styled.div`
   display: grid;
@@ -57,50 +59,89 @@ const GridContainer = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
-`
+`;
 
 const SubGridContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
+
+const fallbackData = [
+  {
+    icon: carouselIcons.adobeIcon,
+    title: "Mooving, ParkSpotter to deploy 200 battery swapping stations in Delhi NCR, Mumbai and Bengaluru",
+    description: "Battery swapping stations will play a pivotal role in expediting the Indian EV adoption rate across India.",
+    author: "Express Mobility Desk",
+    date: "November 30, 2022",
+  },
+  {
+    icon: carouselIcons.caffeineIcon,
+    title: "Government launches new EV policy to promote green transportation",
+    description: "The new policy aims to reduce carbon emissions and promote sustainable transportation solutions.",
+    author: "Green Transport News",
+    date: "January 15, 2023",
+  },
+  {
+    icon: carouselIcons.astrazenecaIcon,
+    title: "Electric vehicle sales surge in 2023",
+    description: "The demand for electric vehicles continues to rise with new advancements in battery technology.",
+    author: "Automotive News",
+    date: "February 10, 2023",
+  },
+  {
+    icon: carouselIcons.huaweiIcon,
+    title: "Startup launches innovative battery swapping technology",
+    description: "A new startup introduces a cutting-edge battery swapping system to enhance the EV charging infrastructure.",
+    author: "TechCrunch",
+    date: "March 5, 2023",
+  },
+];
 
 function MentionsSectionMobileDevice() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch("https://api.example.com/mentions");
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setData(fallbackData);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <MentionsSectionContainer>
       <TitleContainer>
         <Title>Media Mentions</Title>
       </TitleContainer>
-
       <ContentContainer>
         <SliderCarousel>
-          <CarouselItem>
-            <GridContainer>
-              <SubGridContainer>
-                <SliderCarouselCard />
-              </SubGridContainer>
-            </GridContainer>
-          </CarouselItem>
-
-          <CarouselItem>
-            <GridContainer>
-              <SubGridContainer>
-                <SliderCarouselCard />
-              </SubGridContainer>
-            </GridContainer>
-          </CarouselItem>
-
-          <CarouselItem>
-            <GridContainer>
-              <SubGridContainer>
-                <SliderCarouselCard />
-              </SubGridContainer>
-            </GridContainer>
-          </CarouselItem>
+          {data.map((item, index) => (
+            <CarouselItem key={index}>
+              <GridContainer>
+                <SubGridContainer>
+                  <SliderCarouselCard
+                    icon={item.icon}
+                    title={item.title}
+                    description={item.description}
+                    author={item.author}
+                    date={item.date}
+                  />
+                </SubGridContainer>
+              </GridContainer>
+            </CarouselItem>
+          ))}
         </SliderCarousel>
       </ContentContainer>
     </MentionsSectionContainer>
-  )
+  );
 }
 
-export default MentionsSectionMobileDevice
+export default MentionsSectionMobileDevice;
